@@ -21,7 +21,7 @@ body {
   width : 100%;
 }
 
-#pictures {
+.pictures {
   width : 30%;
   height : auto;
   margin-top : 40px;
@@ -71,7 +71,7 @@ hr {
 
 p, h2 {
   font-size : larger;
-   
+
 }
 
 p {
