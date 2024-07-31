@@ -1,5 +1,5 @@
 .DS_Store
-project/.DS_Store
+App/.DS_Store
 project/images/.DS_Store
 docker-compose.preprod.yml
 docker-compose.prod.yml
@@ -7,3 +7,4 @@ docker-compose.yml
 compose.yml
 documentation
 .env
+App/vendor
