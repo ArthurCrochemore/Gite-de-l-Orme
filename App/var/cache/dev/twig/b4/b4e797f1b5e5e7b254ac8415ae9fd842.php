@@ -38,49 +38,63 @@ class __TwigTemplate_280f1387785366c42c3bebaba7546505 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "_header.html.twig"));
 
         // line 1
-        yield "<header>
-    <ul id='tabs'>
-        <li><a href=\"";
-        // line 3
+        yield "    <header>
+        <ul id=\"tabs\">
+            <li>
+                <a href=\"";
+        // line 4
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        yield "\">
-            <img id='logo' src='les_photos/logo.png' class='tab' />
-        </a></li>
-        <li><a href=\"";
-        // line 6
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("learn_more");
-        yield "\">
-            <p id='en-savoir-plus' class='tab content'>En Savoir +</p>
-        </a></li>
-        <li><a href=\"";
+        yield "\" >
+                    <img id=\"logo\" src=\"les_photos/logo.png\" class=\"tab\" />
+                </a>
+            </li>
+            <li>
+                <a href=\"";
         // line 9
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("see_photos");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("en-savoir-plus");
         yield "\">
-            <p id='gallerie' class='tab content'>Gallerie</p>
-        </a></li>
-        <li><a href=\"";
-        // line 12
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("when_can_i_book");
+                    <p id=\"en-savoir-plus\" class=\"tab content\">
+                        En Savoir +
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href=\"";
+        // line 16
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("gallerie");
         yield "\">
-            <p id='disponibilites' class='tab content'>Disponibilités</p>
-        </a></li>
-        <li><a href=\"";
-        // line 15
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact_us");
+                    <p id=\"gallerie\" class=\"tab content\">Gallerie</p>
+                </a>
+            </li>
+            <li>
+                <a href=\"";
+        // line 21
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("disponibilites");
         yield "\">
-            <p id='contacts' class='tab content'>Contact</p>
-        </a></li>
-        <li class=\"dropdown\">
-            <a href=\"#langues\">
-                <p id='langues' class='tab content'>Langues</p>
-            </a>
-            <ul class=\"dropdown-content\">
-                <li><a href=\"#fr\">FR</a></li>
-                <li><a href=\"#en\">EN</a></li>
-            </ul>
-        </li>
-    </ul>
-</header>
+                    <p id=\"disponibilites\" class=\"tab content\">
+                        Disponibilités
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href=\"";
+        // line 28
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contact");
+        yield "\">
+                    <p id=\"contacts\" class=\"tab content\">Contact</p>
+                </a>
+            </li>
+            <li class=\"dropdown\">
+                <a href=\"#langues\">
+                    <p id=\"langues\" class=\"tab content\">Langues</p>
+                </a>
+                <ul class=\"dropdown-content\">
+                    <li><a href=\"#fr\">FR</a></li>
+                    <li><a href=\"#en\">EN</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -109,39 +123,53 @@ class __TwigTemplate_280f1387785366c42c3bebaba7546505 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  69 => 15,  63 => 12,  57 => 9,  51 => 6,  45 => 3,  41 => 1,);
+        return array (  82 => 28,  72 => 21,  64 => 16,  54 => 9,  46 => 4,  41 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<header>
-    <ul id='tabs'>
-        <li><a href=\"{{ path('home') }}\">
-            <img id='logo' src='les_photos/logo.png' class='tab' />
-        </a></li>
-        <li><a href=\"{{ path('learn_more') }}\">
-            <p id='en-savoir-plus' class='tab content'>En Savoir +</p>
-        </a></li>
-        <li><a href=\"{{ path('see_photos') }}\">
-            <p id='gallerie' class='tab content'>Gallerie</p>
-        </a></li>
-        <li><a href=\"{{ path('when_can_i_book') }}\">
-            <p id='disponibilites' class='tab content'>Disponibilités</p>
-        </a></li>
-        <li><a href=\"{{ path('contact_us') }}\">
-            <p id='contacts' class='tab content'>Contact</p>
-        </a></li>
-        <li class=\"dropdown\">
-            <a href=\"#langues\">
-                <p id='langues' class='tab content'>Langues</p>
-            </a>
-            <ul class=\"dropdown-content\">
-                <li><a href=\"#fr\">FR</a></li>
-                <li><a href=\"#en\">EN</a></li>
-            </ul>
-        </li>
-    </ul>
-</header>
+        return new Source("    <header>
+        <ul id=\"tabs\">
+            <li>
+                <a href=\"{{ path('home')}}\" >
+                    <img id=\"logo\" src=\"les_photos/logo.png\" class=\"tab\" />
+                </a>
+            </li>
+            <li>
+                <a href=\"{{ path('en-savoir-plus')}}\">
+                    <p id=\"en-savoir-plus\" class=\"tab content\">
+                        En Savoir +
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href=\"{{ path('gallerie')}}\">
+                    <p id=\"gallerie\" class=\"tab content\">Gallerie</p>
+                </a>
+            </li>
+            <li>
+                <a href=\"{{ path('disponibilites')}}\">
+                    <p id=\"disponibilites\" class=\"tab content\">
+                        Disponibilités
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href=\"{{ path('contact')}}\">
+                    <p id=\"contacts\" class=\"tab content\">Contact</p>
+                </a>
+            </li>
+            <li class=\"dropdown\">
+                <a href=\"#langues\">
+                    <p id=\"langues\" class=\"tab content\">Langues</p>
+                </a>
+                <ul class=\"dropdown-content\">
+                    <li><a href=\"#fr\">FR</a></li>
+                    <li><a href=\"#en\">EN</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
 ", "_header.html.twig", "/var/www/html/templates/_header.html.twig");
     }
 }

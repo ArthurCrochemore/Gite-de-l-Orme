@@ -52,11 +52,13 @@ class __TwigTemplate_f8aeb7be1675764efb3d28cc659e70c1 extends Template
   </head>
 
   <body>
+      <header>
         ";
-        // line 15
-        yield from         $this->loadTemplate("_header.html.twig", "index.html.twig", 15)->unwrap()->yield($context);
         // line 16
+        yield from         $this->loadTemplate("_header.html.twig", "index.html.twig", 16)->unwrap()->yield($context);
+        // line 17
         yield "
+
         <div id=\"main\">
             <img src='les_photos/jardin_gite.jpg' id='diapo' alt='picture'></img>
         </div>
@@ -96,7 +98,7 @@ class __TwigTemplate_f8aeb7be1675764efb3d28cc659e70c1 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  59 => 16,  57 => 15,  41 => 1,);
+        return array (  60 => 17,  58 => 16,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -115,7 +117,9 @@ class __TwigTemplate_f8aeb7be1675764efb3d28cc659e70c1 extends Template
   </head>
 
   <body>
-        {% include '_header.html.twig' %}
+      <header>
+        {% include \"_header.html.twig\" %}
+
 
         <div id=\"main\">
             <img src='les_photos/jardin_gite.jpg' id='diapo' alt='picture'></img>

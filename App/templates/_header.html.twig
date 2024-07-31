@@ -1,0 +1,42 @@
+    <header>
+        <ul id="tabs">
+            <li>
+                <a href="{{ path('home')}}" >
+                    <img id="logo" src="les_photos/logo.png" class="tab" />
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('en-savoir-plus')}}">
+                    <p id="en-savoir-plus" class="tab content">
+                        En Savoir +
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('gallerie')}}">
+                    <p id="gallerie" class="tab content">Gallerie</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('disponibilites')}}">
+                    <p id="disponibilites" class="tab content">
+                        Disponibilités
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('contact')}}">
+                    <p id="contacts" class="tab content">Contact</p>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#langues">
+                    <p id="langues" class="tab content">Langues</p>
+                </a>
+                <ul class="dropdown-content">
+                    <li><a href="#fr">FR</a></li>
+                    <li><a href="#en">EN</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
