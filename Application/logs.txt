@@ -1,0 +1,21 @@
+============================= 
+Mise à jour du dépôt - 20/08/2024 12:03:11,00 
+============================= 
+[INFO] Sauvegarde des modifications locales via 'git stash'. 
+Saved working directory and index state WIP on next-project: 914653a Mise a jour script
+[INFO] Récupération des dernières modifications du dépôt distant via 'git pull'. 
+Already up to date.
+[INFO] Réintégration des modifications locales via 'git stash pop'. 
+On branch next-project
+Your branch is up to date with 'origin/next-project'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   AjouterUneReservation.exe
+	modified:   Application/logs.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (c9fd321a8e1f4b8d74c8e1dd8686523c6dfa205a)
+[INFO] Mise à jour et réintégration des modifications locales terminées avec succès. 
+============================= 
