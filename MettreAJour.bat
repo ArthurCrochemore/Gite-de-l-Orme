@@ -9,7 +9,7 @@ echo ============================= >> %LOG_FILE%
 
 :: Inscriptions de l'état du système de fichiers dans les logs 
 echo [INFO] Sauvegarde des modifications locales via 'git stash'. >> %LOG_FILE%
-git stash >> %LOG_FILE% 2>&1
+git stash -- ":!%LOG_FILE%" >> %LOG_FILE% 2>&1
 
 :: Vérification de la réussite du stash
 if errorlevel 1 (
