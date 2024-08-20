@@ -40,3 +40,5 @@ if errorlevel 1 (
 :: Fin du processus
 echo [INFO] Mise à jour et réintégration des modifications locales terminées avec succès. >> %LOG_FILE%
 echo ============================= >> %LOG_FILE%
+
+EnvoyerLogs.bat
