@@ -1,6 +1,6 @@
 @echo off
 :: Chemin vers le fichier à ajouter
-set FILE_PATH=project\public\reservations.json
+set FILE_PATH=Application\project\public\reservations.json
 
 :: Vérifie si le fichier existe
 if not exist "%FILE_PATH%" (
