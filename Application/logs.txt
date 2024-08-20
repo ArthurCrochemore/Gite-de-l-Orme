@@ -19,3 +19,63 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Dropped refs/stash@{0} (c9fd321a8e1f4b8d74c8e1dd8686523c6dfa205a)
 [INFO] Mise à jour et réintégration des modifications locales terminées avec succès. 
 ============================= 
+============================= 
+Mise à jour du dépôt - 20/08/2024 14:30:21,87 
+============================= 
+[INFO] Sauvegarde des modifications locales via 'git stash'. 
+Saved working directory and index state WIP on next-project: 98cdb26 20-08-2024 14:22 : Ajout d'une reservation
+[INFO] Récupération des dernières modifications du dépôt distant via 'git pull'. 
+From github.com:ArthurCrochemore/Gite-de-l-Orme
+   98cdb26..1519136  next-project -> origin/next-project
+Updating 98cdb26..1519136
+Fast-forward
+ Application/project/app/contacts/page.tsx          |  77 ++++---
+ Application/project/app/disponibilites/page.tsx    | 249 +++++++++------------
+ Application/project/app/en-savoir-plus/page.tsx    | 230 ++++++++++---------
+ Application/project/app/gallerie/page.tsx          |   2 +-
+ Application/project/app/styles/global.css          |  41 +++-
+ Application/project/app/styles/style-contact.css   |  33 ++-
+ .../project/app/styles/style-en-savoir-plus.css    | 131 ++++++-----
+ Application/project/public/images/retro-phone.jpg  | Bin 0 -> 11641741 bytes
+ 8 files changed, 432 insertions(+), 331 deletions(-)
+ create mode 100644 Application/project/public/images/retro-phone.jpg
+[INFO] Réintégration des modifications locales via 'git stash pop'. 
+On branch next-project
+Your branch is up to date with 'origin/next-project'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Application/logs.txt
+	modified:   Application/project/public/reservations.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (855721b1ff607341823fcf3b37413b6783141d1c)
+[INFO] Mise à jour et réintégration des modifications locales terminées avec succès. 
+============================= 
+============================= 
+Mise à jour du dépôt - 20/08/2024 14:35:30,07 
+============================= 
+[INFO] Sauvegarde des modifications locales via 'git stash'. 
+Saved working directory and index state WIP on next-project: 1519136 Correction UX
+[INFO] Récupération des dernières modifications du dépôt distant via 'git pull'. 
+Already up to date.
+[INFO] Réintégration des modifications locales via 'git stash pop'. 
+On branch next-project
+Your branch is up to date with 'origin/next-project'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   Application/logs.txt
+	modified:   Application/project/public/reservations.json
+	modified:   MettreAJour.bat
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	EnvoyerLogs.bat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (4a96b445645cca5831399e67f319ba42d70d6cad)
+[INFO] Mise à jour et réintégration des modifications locales terminées avec succès. 
+============================= 
