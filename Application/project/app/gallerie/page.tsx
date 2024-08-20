@@ -7,7 +7,7 @@ export default function Page() {
       <hr />
 
       <div id="sub-main">
-        <h2>Extérieur</h2>
+        <h2 class="h3">Extérieur</h2>
         <div class="card">
           <img src="/images/jardin_gite.jpg" alt="jardin_gite" />
         </div>

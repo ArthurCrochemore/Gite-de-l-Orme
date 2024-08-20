@@ -2,112 +2,142 @@ import "../styles/style-en-savoir-plus.css";
 
 export default function Page() {
   return (
-    <div id="main" class="main-centered">
-      <h1 id="title">En Savoir Plus :</h1>
-      <hr />
-
+    <div id="main" className="main-centered">
+      <img
+        src="/images/jardin_gite.jpg"
+        alt="The garden of the Gite de l'Orme"
+        id="back-picture"
+      />
       <div id="text">
-        <div class="text">
-          <p id="l1">
-            Bienvenue au Gîte de l'Orme, un gîte très calme située près du Havre
-            et à proximité des plages d'Etretat et d'Honfleur. Nous vous
-            proposons un environnement paisible et reposant, tout en restant
-            aisément accessible grâce à sa proximité des grands axes routiers.
-          </p>
+        <div id="text-top">
+          <h1 id="title">En Savoir Plus</h1>
+          <hr />
+        </div>
 
-          <p id="l2">
-            Le gîte se trouve à environ 15 minutes du Havre centre/ plage, 19 km
-            d'Etretat et 22 km d'Honfleur.
-          </p>
-
-          <div id="container" class="first">
-            <img src="/images/rez_cuisine.jpg" class="pictures" id="left" />
-
-            <p id="l3">
-              Autrefois, cet endroit était une ferme normande dont l'étable a
-              été transformée en maison. Nous avons conservé le style normand
-              lors de sa rénovation, avec une structure en brique et silex. Une
-              partie de la demeure étant inoccupée, nous avons décidé de
-              l'aménager en gîte, afin de permettre à des personnes comme vous
-              de venir y passer des vacances reposantes.
+        <div className="text">
+          <section class="white">
+            <h2 class="h3">Bienvenue au Gîte de l'Orme</h2>
+            <p>
+              Un gîte très calme situé près du Havre et à proximité des plages
+              d'Etretat et d'Honfleur. Nous vous proposons un environnement
+              paisible et reposant, tout en restant aisément accessible grâce à
+              sa proximité des grands axes routiers.
             </p>
+            <p>Le gîte se trouve à environ :</p>
+            <ul>
+              <li>15 minutes du Havre centre/plage</li>
+              <li>19 km d'Etretat</li>
+              <li>22 km d'Honfleur</li>
+            </ul>
+          </section>
 
-            <p id="l4">
-              Le stationnement est gratuit dans propriété privée (en retrait de
-              la voie publique et à l'abri des regards indiscrets). Il vous est
-              également possible de stationner plusieurs véhicules et/ou
-              camions.
+          <section id="first" class="green">
+            <img src="/images/rez_cuisine.jpg" className="pictures" id="left" />
+            <div className="text-content">
+              <h3 class="h4">Histoire du Gîte</h3>
+              <p>
+                Autrefois, cet endroit était une ferme normande dont l'étable a
+                été transformée en maison. Nous avons conservé le style normand
+                lors de sa rénovation, avec une structure en brique et silex.
+              </p>
+              <p>
+                Une partie de la demeure étant inoccupée, nous avons décidé de
+                l'aménager en gîte, afin de permettre à des personnes comme vous
+                de venir y passer des vacances reposantes.
+              </p>
+            </div>
+          </section>
+
+          <section class="grey">
+            <h3 class="h4">Commodités du Gîte</h3>
+            <ul>
+              <li>
+                Stationnement gratuit dans une propriété privée, à l'abri des
+                regards indiscrets.
+              </li>
+              <li>
+                Deux chambres : une avec un lit double, l'autre avec 2 lits
+                superposés, et une mezzanine avec un canapé-lit pouvant servir
+                de 3ème chambre.
+              </li>
+              <li>
+                Pièce de vie avec coin cuisine (micro-ondes, réfrigérateur,
+                congélateur, four, plaque de cuisson, cafetière, bouilloire,
+                TV).
+              </li>
+              <li>Salle de douche et terrasse avec barbecue.</li>
+              <li>
+                Équipé d'un lave-linge et d'un espace pour étendre le linge sur
+                la terrasse.
+              </li>
+              <li>Linge de lit fourni.</li>
+            </ul>
+          </section>
+
+          <section id="second" class="green">
+            <img src="/images/chambre_2.jpg" className="pictures" id="right" />
+            <div className="text-content">
+              <h3 class="h4">Tarifs et Disponibilités</h3>
+              <p>
+                Notre gîte est idéal pour des séjours en semaine ou en week-end,
+                avec des tarifs attractifs selon les conditions :
+              </p>
+              <ul>
+                <li>
+                  A partir de 290€ la semaine pour les vacances scolaires.
+                </li>
+                <li>
+                  De 350€ à 590€ la semaine en juillet et août, avec des remises
+                  pour les séjours prolongés.
+                </li>
+                <li>
+                  Tarifs spéciaux pour les longues périodes, à partir de 37€ par
+                  nuit.
+                </li>
+              </ul>
+              <p>
+                Le WIFI est gratuit avec une très bonne réception, permettant de
+                se connecter à plusieurs en même temps.
+              </p>
+              <p>
+                Les tarifs comprennent l'eau, l'électricité et le chauffage.
+              </p>
+            </div>
+          </section>
+
+          <section class="white">
+            <h3 class="h4">Informations supplémentaires</h3>
+            <ul>
+              <li>
+                Le gîte est non-fumeur (il est possible de fumer à l'extérieur).
+              </li>
+              <li>Les animaux ne sont pas acceptés.</li>
+              <li>
+                Non adapté aux personnes à mobilité réduite (étage sans
+                ascenseur).
+              </li>
+              <li>
+                Classé 1 étoile par la préfecture, avec une taxe de séjour de
+                0,80€/nuit/adulte.
+              </li>
+            </ul>
+          </section>
+
+          <section class="black">
+            <h3 class="h4">Contactez-nous</h3>
+            <p>
+              Pour plus de photos ou pour obtenir un devis personnalisé,
+              n'hésitez pas à nous contacter par mail en indiquant la période
+              souhaitée ainsi que le nombre de personnes adultes et enfants.
+              Nous vous répondrons rapidement.
             </p>
+          </section>
 
-            <p id="l5">
-              Notre gîte est entièrement équipé, il comprend 2 chambres (une
-              avec un lit double et l'autre avec 2 lits superposés) ainsi qu'une
-              mezzanine avec un canapé-lit pouvant être utilisé comme une 3ème
-              chambre. Vous trouverez également une pièce de vie avec coin
-              cuisine (micro-ondes, réfrigérateur, congélateur, four, plaque de
-              cuisson, cafetière, bouilloire, TV), une salle de douche et une
-              terrasse avec barbecue.
+          <section class="green">
+            <p id="final" class="h1">
+              En espérant vous voir bientôt.
             </p>
-
-            <p id="l6">
-              Il est également équipé d'un lave linge ainsi que de fils au
-              niveau de la terasse, pour y étendre le linge. Nous fournissons le
-              linge de lit.
-            </p>
-          </div>
-
-          <p id="l8">
-            Pour les enfants, un espace de jeux intérieur avec cabane et coin
-            lecture/jeux est à leur disposition, ainsi qu'un portique extérieur.
-          </p>
-
-          <div id="container" class="second">
-            <img src="/images/chambre_2.jpg" class="pictures" id="right" />
-
-            <p id="l9">
-              Notre gîte est idéal pour des séjours en semaine ou en week-end,
-              avec des tarifs attractifs selon les conditions. Pour les vacances
-              scolaires, comptez à partir de 290€ la semaine, ou à partir de
-              350€ la semaine en petites vacances. En juillet et août, les
-              tarifs varient de 380€ à 590€ la semaine, avec une remise pour les
-              séjours de plusieurs semaines consécutives. Nous proposons
-              également des tarifs spéciaux pour les longues périodes, à partir
-              de 37€ par nuit selon les conditions.
-            </p>
-
-            <p id="l10">
-              Le WIFI est gratuit (avec une très bonne réception, permettant de
-              se connecter à plusieurs en même temps).
-            </p>
-
-            <p id="l11">
-              Les tarifs comprennent l'eau, l'électricité et le chauffage, la
-              WIFI étant gratuite.
-            </p>
-
-            <p id="l12"></p>
-          </div>
-
-          <p id="l13">
-            Le gîte est non-fumeur (il est cependant possible de fumer à
-            l'extérieur) et ne peut accueillir d'animaux. Il n'est pas adapté
-            aux personnes à mobilité réduite (étage sans ascenseur).
-          </p>
-
-          <p id="l14">
-            Le gîte est déclaré en Mairie. Son classement préfectoral est de 1
-            étoile. La taxe de séjour est de niveau 1*: 0,80€/nuit/adulte;
-            gratuit pour les mineurs
-          </p>
-
-          <p id="l15">
-            Pour plus de photos ou pour obtenir un devis personnalisé, n'hésitez
-            pas à nous contacter par mail en indiquant la période souhaitée
-            ainsi que le nombre de personnes adultes et enfants. Nous vous
-            répondrons rapidement.
-          </p>
-
-          <p id="final">En espérant vous voir bientôt.</p>
+          </section>
         </div>
       </div>
     </div>

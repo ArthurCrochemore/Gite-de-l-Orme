@@ -1,7 +1,78 @@
 #main {
-    #container {
-        left: 0;
-        width: 100%;
+    display: relative;
+    #back-picture {
+        position: fixed;
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+    }
+
+    #text {
+        position: absolute;
+        width: 80%;
+        top: 60px;
+
+        #text-top {
+            width: 100%;
+            background-color: var(--grey-100);
+            padding: 20px 0;
+
+            h1 {
+                padding: 0;
+                margin: 0px;
+                margin-bottom: 25.9424px;
+            }
+        }
+
+        .text {
+            background-color: var(--grey-100);
+            max-width: 800px;
+            margin: auto;
+            border-radius: 5px;
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                margin: 0;
+                padding-top: 25px;
+                padding-bottom: 20px;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            p,
+            li,
+            img {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        .green {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .grey {
+            background-color: var(--grey-100);
+            color: black;
+        }
+
+        .white {
+            background-color: white;
+            color: black;
+        }
+
+        .black {
+            background-color: black;
+            color: white;
+        }
     }
 
     .pictures {
@@ -17,7 +88,6 @@
 
     .first img {
         float: left;
-        margin-right: 40px;
     }
 
     .second {
@@ -26,19 +96,9 @@
 
     .second img {
         float: right;
-        margin-left: 40px;
     }
 
     #text {
-        width: 95%;
-        background-color: white;
-        margin-left: 2.5%;
-    }
-
-    .text {
-        left: 2.5%;
-        right: 2.5%;
-        /* line-height: : 100%; */
     }
 
     #final {
@@ -47,51 +107,22 @@
     }
 
     p,
-    h2 {
+    li {
         font-size: larger;
-    }
-
-    p {
         line-height: 50px;
-        margin-bottom: 30px;
+        margin: 0;
     }
 
-    h2 {
-        top: 1%;
+    li,
+    ul {
+        padding-bottom: 10px;
+        margin: 0;
     }
 
     .content,
-    #text {
+    .text {
         font-family: lato;
         color: black;
-    }
-
-    #header {
-        position: absolute;
-        height: 65px;
-        background-color: white;
-        box-shadow: 0px 15px 20px lightgrey;
-        width: 100%;
-        top: 0;
-        left: 0;
-        position: fixed;
-    }
-
-    #language {
-        position: absolute;
-        right: 20px;
-    }
-
-    #tel {
-        position: absolute;
-        right: 140px;
-    }
-
-    #logo {
-        position: absolute;
-        height: 50px;
-        left: 20px;
-        top: 5px;
     }
 
     @media (max-aspect-ratio: 5/4) {
