@@ -1,11 +1,15 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LocaleSwitcher } from "./translations";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header id="header">
       <ul id="tabs">
         <li>
-          <Link href="/">
+          <Link className={`link ${pathname === "/" ? "active" : ""}`} href="/">
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -133,28 +137,40 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link href="/en-savoir-plus">
+          <Link
+            className={`link ${pathname === "/en-savoir-plus" ? "active" : ""}`}
+            href="/en-savoir-plus"
+          >
             <p id="en-savoir-plus" class="tab content">
               En Savoir +
             </p>
           </Link>
         </li>
         <li>
-          <Link href="/gallerie">
+          <Link
+            className={`link ${pathname === "/gallerie" ? "active" : ""}`}
+            href="/gallerie"
+          >
             <p id="gallerie" class="tab content">
               Gallerie
             </p>
           </Link>
         </li>
         <li>
-          <Link href="/disponibilites">
+          <Link
+            className={`link ${pathname === "/disponibilites" ? "active" : ""}`}
+            href="/disponibilites"
+          >
             <p id="disponibilites" class="tab content">
               Disponibilités
             </p>
           </Link>
         </li>
         <li>
-          <Link href="/contacts">
+          <Link
+            className={`link ${pathname === "/contacts" ? "active" : ""}`}
+            href="/contacts"
+          >
             <p id="contacts" class="tab content">
               Contact
             </p>
@@ -167,12 +183,7 @@ export default function Header() {
             </p>
           </a>
           <ul class="dropdown-content">
-            <li>
-              <a href="#fr">FR</a>
-            </li>
-            <li>
-              <a href="#en">EN</a>
-            </li>
+            <LocaleSwitcher />
           </ul>
         </li>
       </ul>

@@ -117,7 +117,8 @@ header {
                 }
             }
 
-            a:hover {
+            a:hover,
+            a.active {
                 background-color: var(--black-filter);
                 color: var(--grey-100);
             }

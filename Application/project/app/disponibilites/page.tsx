@@ -1,147 +1,161 @@
-import React, { useEffect, useCallback } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import "../styles/style-disponibilites.css";
 
-const Page = () => {
-  let month = new Date().getMonth();
-  let year = new Date().getFullYear();
-  let calendar = [];
-  let bookedDates = new Set();
+async function getReservations() {
+  const reservations = await fetch("http://127.0.0.1:3000/reservations.json", {
+    cache: "no-store",
+  });
 
-  const setMonth = (newMonth) => {
-    month = newMonth;
-  };
-  const setYear = (newYear) => {
-    year = newYear;
-  };
-  const setCalendar = (newCalendar) => {
-    calendar = newCalendar;
-  };
-  const setBookedDates = (newBookedDates) => {
-    bookedDates = newBookedDates;
-  };
+  const data = await reservations.json();
+  return data as any[];
+}
 
-  const convertToTwoDigits = (num) => (num < 10 ? `0${num}` : num.toString());
+function getCurrentDate() {
+  return new Date();
+}
 
-  const formatDate = (date) => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    return `${year}-${convertToTwoDigits(month)}-${convertToTwoDigits(day)}`;
-  };
+function getDaysInMonth(month, year) {
+  return new Date(year, month, 0).getDate();
+}
 
-  const getMonthName = (monthIndex) => {
-    const monthNames = [
-      "Janvier",
-      "Février",
-      "Mars",
-      "Avril",
-      "Mai",
-      "Juin",
-      "Juillet",
-      "Août",
-      "Septembre",
-      "Octobre",
-      "Novembre",
-      "Décembre",
-    ];
-    return monthNames[monthIndex];
-  };
+function getStartDayOfMonth(month, year) {
+  return (new Date(year, month, 1).getDay() + 6) % 7;
+}
 
-  const setCalendarNumbers = useCallback((year, month) => {
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDayIndex = (new Date(year, month, 1).getDay() + 6) % 7;
+function isDayReserved(day, reservations) {
+  const currentDate = new Date(day.date); // Assuming day.date is a Date object
 
-    const newCalendar = [];
-    let currentDate = new Date(year, month, 1);
-    currentDate.setDate(currentDate.getDate() - firstDayIndex);
+  return reservations.some((reservation) => {
+    const startDate = new Date(reservation.start);
+    const endDate = new Date(reservation.end);
+    endDate.setDate(endDate.getDate() + 1);
 
-    for (let i = 0; i < 6; i++) {
-      const week = [];
-      for (let j = 0; j < 7; j++) {
-        const day = currentDate.getDate();
-        const currentMonth = currentDate.getMonth();
-        week.push({
-          day,
-          date: formatDate(currentDate),
-          isOtherMonth: currentMonth !== month,
-        });
-        currentDate.setDate(currentDate.getDate() + 1);
-      }
-      newCalendar.push(week);
-    }
+    // Ensure that the reservation covers the current date
+    return startDate < currentDate && endDate > currentDate;
+  });
+}
 
-    setCalendar(newCalendar);
-  }, []);
-
-  const loadBookedDates = useCallback(async () => {
-    try {
-      const response = await fetch(
-        "https://arthurcrochemore.github.io/Gite-de-l-Orme/book.json",
-      );
-      const json = await response.json();
-      json.forEach((dateRange) =>
-        markBookedDates(dateRange.start, dateRange.end),
-      );
-    } catch (error) {
-      console.error("Failed to load booked dates:", error);
-    }
-  }, []);
-
-  const markBookedDates = useCallback(
-    (startDate, endDate) => {
-      const start = new Date(startDate);
-      const end = new Date(endDate);
-      const newBookedDates = new Set(bookedDates);
-      let currentDate = new Date(start);
-      while (currentDate <= end) {
-        newBookedDates.add(formatDate(currentDate));
-        currentDate.setDate(currentDate.getDate() + 1);
-      }
-      setBookedDates(newBookedDates);
-    },
-    [bookedDates],
+// Function to get the weeks of a month
+function getWeeks(month, year, reservations) {
+  const daysInMonth = getDaysInMonth(month, year);
+  const daysInPreviousMonth = getDaysInMonth(
+    (month + 11) % 12,
+    year - (month === 0 ? 1 : 0),
   );
+  const startDay = getStartDayOfMonth(month, year);
+  const weeks = [];
 
+  let day = 1 - startDay;
+  for (let i = 0; i < 6; i++) {
+    const week = [];
+    for (let j = 0; j < 7; j++) {
+      let currentDay;
+      const currentDate = new Date(year, month, day);
+      if (day > 0 && day <= daysInMonth) {
+        currentDay = {
+          date: new Date(year, month, day),
+          isCurrentMonth: true,
+          dayNumber: day,
+          isReserved: isDayReserved({ date: currentDate }, reservations),
+        };
+      } else if (day <= 0) {
+        currentDay = {
+          date: new Date(year, month - 1, daysInPreviousMonth + day),
+          isCurrentMonth: false,
+          dayNumber: daysInPreviousMonth + day,
+          isReserved: false,
+        };
+      } else {
+        currentDay = {
+          date: new Date(year, month + 1, day - daysInMonth),
+          isCurrentMonth: false,
+          dayNumber: day - daysInMonth,
+          isReserved: false,
+        };
+      }
+      week.push(currentDay);
+      day++;
+    }
+    weeks.push(week);
+  }
+
+  return weeks;
+}
+
+// Function to get the formatted date string
+function getDateFormat(date) {
+  const months = [
+    "Janvier",
+    "Février",
+    "Mars",
+    "Avril",
+    "Mai",
+    "Juin",
+    "Juillet",
+    "Août",
+    "Septembre",
+    "Octobre",
+    "Novembre",
+    "Décembre",
+  ];
+  return `${months[date.getMonth()]} ${date.getFullYear()}`;
+}
+
+export default function Page() {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [weeks, setWeeks] = useState([]);
+  const [reservations, setReservations] = useState([]);
+
+  // Fetch reservations and update state
   useEffect(() => {
-    setCalendarNumbers(year, month);
-    loadBookedDates();
-  }, [month, year, setCalendarNumbers, loadBookedDates]);
+    const fetchReservations = async () => {
+      const data = await getReservations();
+      setReservations(data);
+      setWeeks(
+        getWeeks(currentDate.getMonth(), currentDate.getFullYear(), data),
+      );
+    };
+
+    fetchReservations();
+  }, []);
+
+  // Update weeks when currentDate or reservations change
+  useEffect(() => {
+    setWeeks(
+      getWeeks(currentDate.getMonth(), currentDate.getFullYear(), reservations),
+    );
+  }, [currentDate, reservations]);
 
   const handlePrevMonth = () => {
-    setMonth((prevMonth) => {
-      if (prevMonth === 0) {
-        setYear((prevYear) => prevYear - 1);
-        return 11;
-      } else {
-        return prevMonth - 1;
-      }
-    });
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() - 1,
+      1,
+    );
+    setCurrentDate(newDate);
   };
 
   const handleNextMonth = () => {
-    setMonth((prevMonth) => {
-      if (prevMonth === 11) {
-        setYear((prevYear) => prevYear + 1);
-        return 0;
-      } else {
-        return prevMonth + 1;
-      }
-    });
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      1,
+    );
+    setCurrentDate(newDate);
   };
 
   return (
     <div id="main" className="main-centered">
-      <h1 id="title">Disponibilites :</h1>
+      <h1 id="title">Disponibilités :</h1>
       <hr />
       <div id="calendar" className="container">
         <div id="calendar-table">
           <div id="date-title">
             <button onClick={handlePrevMonth}>&lt;</button>
-            <h2 id="month">{getMonthName(month)}</h2>
-            <h2 id="year">{year}</h2>
+            <span>{getDateFormat(currentDate)}</span>
             <button onClick={handleNextMonth}>&gt;</button>
           </div>
-
           <ul id="week-days">
             <li>Lundi</li>
             <li>Mardi</li>
@@ -151,32 +165,21 @@ const Page = () => {
             <li>Samedi</li>
             <li>Dimanche</li>
           </ul>
-
-          {calendar.map((week, index) => (
-            <ul key={index} id={`line-${index + 1}`} className="line">
-              {week.map((day) => (
+          {weeks.map((week, weekIndex) => (
+            <ul key={weekIndex} className="week">
+              {week.map((currentDay, dayIndex) => (
                 <li
-                  key={day.date}
-                  id={day.date}
-                  className={day.isOtherMonth ? "other-month" : ""}
+                  key={dayIndex}
+                  id={`day-${weekIndex}-${dayIndex}`}
+                  className={`day ${currentDay.isCurrentMonth ? "current-month" : "other-month"} ${currentDay.isReserved ? "booked" : ""}`}
                 >
-                  {day.day}
+                  {currentDay.dayNumber}
                 </li>
               ))}
             </ul>
           ))}
         </div>
-
-        <div id="calendar-legend">
-          <h3>Légende :</h3>
-          <ul id="line-example" className="line">
-            <li className="legend-item booked">Réservé</li>
-            <li className="legend-item free">Libre</li>
-          </ul>
-        </div>
       </div>
     </div>
   );
-};
-
-export default Page;
+}
